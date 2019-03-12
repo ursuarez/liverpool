@@ -2,8 +2,6 @@ const buscarProductos = (searchText, callback) => {
 
     let busqueda = searchText.replace(/\s/g, '+'), resultado
 
-    console.log(busqueda)
-
     fetch(`https://www.liverpool.com.mx/tienda/?s=${busqueda}&d3106047a194921c01969dfdec083925=json`)
         .then(response => response.json())
         .then(data => {

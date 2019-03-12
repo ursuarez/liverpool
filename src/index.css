@@ -85,11 +85,12 @@
   flex-wrap: wrap;
   padding: 0;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .product {
   width: 270px;
+  height: 310px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,28 +129,59 @@
 .productImage img {
   width: 216px;
   height: 162px;
-  margin: 15px 0 10px;
-  transition: .3s ease-in-out;
+  margin: 12px 0 10px;
+  transition: .2s ease-in-out;
 }
 
 .product:hover .productImage img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .productPrice {
   font-family: 'Titillium Web', sans-serif;
   width: 100%;
   text-align: center;
-  color: red;
-  font-size: 20px;
+  
+}
+.productPrice--list {
+  color: #636363;
+  font-size: 14px;
+  text-decoration: line-through;
+  margin: 10px 0 -5px;
 }
 
-.productPrice p {
-  margin: 10px 0 20px;
+.productPrice--list sup {
+  font-size: 8px;
+  position: absolute;
+  top: 9px;
+  margin-left: 2px;
+}
+
+.productPrice--promo {
+  color: red;
+  font-weight: bold;
+  font-size: 25px;
+  margin: 0 0 20px;
+}
+.productPrice--promo sup {
+  font-size: 10px;
+  position: absolute;
+  top: 14px;
+  margin-left: 2px;
+}
+
+.productPrice span {
+  position: relative;
+  display: block;
+  width: auto;
 }
 
 .o-productList {
   margin-top: 20px;
+}
+
+.--onlyPrice {
+  margin: 25px 0 0px;
 }
 
 code {

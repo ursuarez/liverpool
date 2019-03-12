@@ -1,20 +1,36 @@
 import React, {Component} from 'react';
 
 class RecentSearch extends Component {
-    render() {
-        return(
-            <div className="container o-recentSearch">
-                <h5 className="a-recentSearch-headline">Búsquedas recientes</h5>
+	state = {
+		palabrasBusqueda: [],
+		
+	}
 
-                <div className="m-recentSearch">
-                    <span>Ropa de mujer</span>
-                    <span>Chamarra hombre</span>
-                    <span>Videojuegos</span>
+	componentDidMount() {
+		const palabrasBusquedaLS = localStorage.getItem('palabraBusqueda')
 
-                </div>
-            </div>
-        )
-    }
+		if(palabrasBusquedaLS) {
+			this.setState({
+				palabrasBusqueda: JSON.parse(palabrasBusquedaLS)
+			})
+		}
+	}
+
+	render() {
+		return(
+			<div className="container o-recentSearch">
+				<h5 className="a-recentSearch-headline">Búsquedas recientes</h5>
+
+				<div className="m-recentSearch">
+					{
+						(this.state.palabrasBusqueda).length === 0
+						? <span>No has realizado ninguna búsqueda...</span>
+						: this.state.palabrasBusqueda.map((itemLS, index) => <span key={index}>{itemLS}</span>)
+					}
+				</div>
+			</div>
+		)
+	}
 }
 
 export default RecentSearch;
